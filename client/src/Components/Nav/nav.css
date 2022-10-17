@@ -1,0 +1,79 @@
+.container{
+    width: 100vw;
+    overflow: hidden;
+    background-color: #3B3B39;
+    height: 10%;
+    box-shadow: 0px 0px 4px 1px rgba(24, 24, 22, 0.7);
+}
+.containerInner{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.logoTextContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 0px;
+}
+.logoText{
+    font-size: 23px;
+    font-weight: 800;
+    color: whitesmoke;    
+    display: flex;
+    align-items: center;
+}
+.logoText img{
+    height: 45px;
+}
+.rightNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+    height: 75%;
+    /* width: 17%; */
+    gap: 0px 40px;
+    box-shadow: 0px 0px 4px 1px rgba(24, 24, 22, 0.7);
+    /* border-radius: 2px; */
+}
+.leftContainer{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 0px 10px;
+}
+.circle{
+    color: white;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3px;
+}
+.circle img{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+.data{
+}
+.userName{
+    color: whitesmoke;
+    font-weight:700;
+}
+.userType{
+    color: whitesmoke;
+    font-size: small;
+}
+.iconContainer{
+    width: 30px;
+    border-left: 1px solid rgba(24, 24, 22, 0.6);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
