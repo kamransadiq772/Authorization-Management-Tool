@@ -259,19 +259,17 @@ const User = () => {
                       <th>AnydeskID</th>
                       <th>ServerUser</th>
                       <th>Update</th>
-                      <th>View</th>
                       <th>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
                     {
                       tdata.map((item, index) => (
-                        <tr key={index}>
+                        <tr key={index} onClick={() => { detailsClick(item) }}>
                           <td>{item.clientName}</td>
                           <td>{item.anydeskID}</td>
                           <td>{item.serverUser}</td>
                           <td><EditIcon sx={{ color: 'white' }} onClick={() => { onEditeClick(item) }} /></td>
-                          <td><VisibilityIcon sx={{ color: 'white' }} onClick={() => { detailsClick(item) }} /></td>
                           <td><DeleteIcon sx={{ color: 'white' }} onClick={() => { deleteClick(item) }} /></td>
                         </tr>
                       ))
