@@ -27,15 +27,26 @@ connectdb()
 // }
 // OR
 
-app.use(express.static("client/build"))
-app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"client","build"))
-})
+
 
 //dependencies injections
 app.use(express.json())
 app.use(cors())
 app.use(helmet())
+
+// declare react files in build as static
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("/main/users", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+app.get("/main", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
 
 //Using the Routes of whole app
 app.use('/api/users',userRoute)

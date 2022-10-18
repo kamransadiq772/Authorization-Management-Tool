@@ -266,7 +266,7 @@ const User = () => {
                   </thead>
                   <tbody>
                     {
-                      tdata.map((item, index) => (
+                      tdata.length > 0 && tdata.map((item, index) => (
                         <tr key={index} onClick={() => { detailsClick(item) }}>
                           <td>{item.clientName}</td>
                           <td>{item.anydeskID}</td>
