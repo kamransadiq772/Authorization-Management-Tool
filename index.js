@@ -4,9 +4,10 @@ const cors = require('cors')
 const helmet = require('helmet')
 const app = express()
 const {connectdb} = require('./db/db')
-const {notfound,errorHandler} = require('./middlewares/errorMiddleware')
+const {errorHandler} = require('./middlewares/errorMiddleware')
 const userRoute = require('./routes/user')
 const passwordRoute = require('./routes/password')
+const profileRouter = require('./routes/profileRoute')
 const path = require('path')
 const port = process.env.PORT || 4000
 
@@ -39,9 +40,10 @@ app.use(helmet())
 //Using the Routes of whole app
 app.use('/api/users',userRoute)
 app.use('/api/passwords',passwordRoute)
+app.use('/api/profile',profileRouter)
 
 //Error Handler
-app.use(notfound)
+// app.use(notfound)
 app.use(errorHandler)
 
 //listening on specific port for local host

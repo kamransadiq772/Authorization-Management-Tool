@@ -58,7 +58,7 @@ const Login = () => {
               <label htmlFor="">Email<span >*</span></label>
               <input type="text" value={loginData.email} placeholder="Email" onChange={e => setloginData(ps => ({ ...ps, email: e.target.value }))} />
               <label htmlFor="">Password<span >*</span></label>
-              <input type="text" value={loginData.password} placeholder="Password" onChange={e => setloginData(ps => ({ ...ps, password: e.target.value }))} />
+              <input type="password" value={loginData.password} placeholder="Password" onChange={e => setloginData(ps => ({ ...ps, password: e.target.value }))} />
             </form>
             <button onClick={logIn}>Log In</button>
           </div>

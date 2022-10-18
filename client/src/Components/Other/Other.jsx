@@ -32,8 +32,8 @@ const Other = () => {
             </div>
             <div className="otherDrawerList">
               <ul>
-                <NavLink style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }} to='/main/users'><li>Users</li></NavLink>
-                <NavLink style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }} to='/main'><li>Passwords</li></NavLink>
+                <NavLink className='navlink' style={{ textDecoration: 'none',display:'block', color: 'white', width: '100%', height: '100%' }} to='/main/users'>Users</NavLink>
+                <NavLink className='navlink' style={{ textDecoration: 'none',display:'block', color: 'white', width: '100%', height: '100%' }} to='/main'>Passwords</NavLink>
               </ul>
             </div>
           </div>

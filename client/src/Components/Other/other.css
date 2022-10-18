@@ -94,6 +94,16 @@
     border-bottom: 1px solid rgba(24, 24, 22, 0.7);
 }
 
+.navlink:hover{
+    background-color: gray;
+}
+.navlink{
+    margin: 10px 0px;
+    padding-left: 10px;
+}
+.active{
+    background-color: gray;
+}
 .otherDrawerList ul li {
     padding: 5px 0px;
     cursor: pointer;
@@ -157,6 +167,13 @@
 .rightbutton :last-child {
     cursor: pointer;
 }
+.rightbutton :first-child:hover {
+    transform: translateY(2px);
+}
+
+.rightbutton :last-child:hover {
+    transform: translateY(2px);
+}
 
 /* TablePart */
 .otherTableContainer {
@@ -213,6 +230,15 @@
     background-color: rgba(24, 24, 22, 0.7);
 }
 
+.updateIcon:hover{
+    color: rgb(87, 87, 196);
+    transform:translateY(3px);
+}
+.deleteIcon:hover{
+    color: rgb(187, 93, 93);
+    transform:translateY(3px);
+}
+
 .table table tbody tr td {
     text-align: start;
     color: white;
@@ -221,6 +247,11 @@
 }
 
 /* Details Modal */
+/* The animation code */
+@keyframes example {
+    from {opacity: 0; transform: translateX(300px);}
+    to {opacity: 1; transform: translateX(0px);}
+  }
 .detailsContainer {
     position: absolute;
     width: 100%;
@@ -239,6 +270,9 @@
     overflow-y: auto;
     overflow-x: hidden;
     right: 50px;
+    animation-name: example;
+    animation-timing-function: ease-out;
+    animation-duration: 0.3s;
 }
 
 .detailsHeader {

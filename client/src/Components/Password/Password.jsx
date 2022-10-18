@@ -130,7 +130,8 @@ const User = () => {
     setInitialState()
   }
 
-  const onEditeClick = (item) => {
+  const onEditeClick = (item,e) => {
+    e.stopPropagation()
     document.getElementById('submit').style.display = 'none'
     document.getElementById('clear').style.display = 'none'
     document.getElementById('update').style.display = 'block'
@@ -199,7 +200,8 @@ const User = () => {
     }
   }
 
-  const deleteClick = async (item) => {
+  const deleteClick = async (item,e) => {
+    e.stopPropagation()
     if (window.confirm("Deleted record would not be backup")) {
       setloading(true)
       try {
@@ -269,8 +271,8 @@ const User = () => {
                           <td>{item.clientName}</td>
                           <td>{item.anydeskID}</td>
                           <td>{item.serverUser}</td>
-                          <td><EditIcon sx={{ color: 'white' }} onClick={() => { onEditeClick(item) }} /></td>
-                          <td><DeleteIcon sx={{ color: 'white' }} onClick={() => { deleteClick(item) }} /></td>
+                          <td><EditIcon className='updateIcon' sx={{ color: 'white', cursor:'pointer' }} onClick={(event) => { onEditeClick(item, event) }} /></td>
+                          <td><DeleteIcon className='deleteIcon' sx={{ color: 'white', cursor:'pointer' }} onClick={(event) => { deleteClick(item, event) }} /></td>
                         </tr>
                       ))
                     }

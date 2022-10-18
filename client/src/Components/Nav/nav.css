@@ -1,6 +1,6 @@
 .container{
     width: 100vw;
-    overflow: hidden;
+    overflow: hidden !important;
     background-color: #3B3B39;
     height: 10%;
     box-shadow: 0px 0px 4px 1px rgba(24, 24, 22, 0.7);
@@ -77,3 +77,201 @@
     justify-content: center;
     align-items: center;
 }
+
+/* NavDropDown */
+
+.ddContainer{
+    position: absolute;
+    background-color: #3B3B39;
+    top:65px;
+    right: 3%;
+    clear: both;
+    z-index: 1000;
+    width: 20vw;
+    border-radius: 5px;
+}
+.ddInner{
+    position: relative;
+    color: white;
+    margin: auto;
+    height: 100%;
+}
+.ddheaderContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    border-bottom: 1px solid gainsboro;
+    padding: 0px 10px;
+}
+.ddTitle{
+    font-size: x-large;
+    font-weight: 500;
+    
+}
+.ddBottomContainer{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+}
+.ddInfoContainer{
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ddInfoItem{
+    display: flex;
+}
+.valuename{
+    text-align: left;
+    margin: 5px 0px;
+    font-size: x-large;
+    font-weight: 500;
+}
+.valueEmail{
+    text-align: left;
+    margin: 5px 0px;
+    font-size: 16px;
+    font-weight: 200;
+} 
+.valueType{
+    text-align: left;
+    margin: 5px 0px;
+    font-size: small;
+}
+.ddBottomContainer{
+    display: flex;
+    gap: 10px;
+}
+.ddBottomContainer button{
+    height: 60%;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3B3B39;
+    box-shadow: 1px 1px 1px 1px black;
+}
+.ddBottomContainer button:hover{
+    box-shadow: none;
+    transform:translateY(2px);
+}
+@keyframes example1 {
+    from {opacity: 0; transform: translatey(300px)}
+    to {opacity: 1; transform: translatey(0px)}
+  }
+
+  @keyframes example2 {
+    from {opacity: 0; transform: translatex(1000px);}
+    to {opacity: 1; transform: translatex(0px);}
+  }
+.editProfileModal{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(24, 24, 22, 0.5);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+.editProfileInner{
+    animation-name: example1;
+    animation-timing-function: ease-out;
+    animation-duration: 0.5s;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: #3B3B39;
+    box-shadow: 1px 1px 5px 5px black;
+}
+.editProfileHeader{
+    height: 15%;
+}
+.editProfileHeaderInner{
+    width: 95%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.editProfileTitle{
+    font-size: x-large;
+    font-weight: 500;
+}
+.closeIcon{
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+}
+.closeIcon:hover{
+    background-color: red;
+}
+.editProfileForm{
+    /* margin-top: 40px; */
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.editProfileInputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+} 
+.editProfileInputContainer label{
+    color: white;
+}
+.editProfileInputContainer input{
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    padding:0px 10px;
+}
+.editProfileBottom{
+    bottom: 0;
+    height: 15%;
+}
+.editProfileBottomInner{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.editProfileBottomInner button{
+    width: 15%;
+    height: 50%;
+    font-size: large;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #3B3B39;
+    box-shadow: 1px 1px 4px 1px black;
+    cursor: pointer;
+    letter-spacing: 3px;
+}
+.editProfileBottomInner button:hover{
+    transform: translateY(2px);
+    box-shadow: 1px 1px 4px 1px rgb(36, 36, 36);
+}
+.editProfileBottomInner :nth-child(1){    
+}
+.editProfileBottomInner :nth-child(2){
+    /* background-color: aliceblue;
+    color: gray; */
+}
+

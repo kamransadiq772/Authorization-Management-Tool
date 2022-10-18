@@ -5,7 +5,13 @@ import Footer from '../Footer/Footer'
 import {useNavigate} from 'react-router-dom'
 
 const Main = () => {
+
   const navigate = useNavigate()
+
+  // if(localStorage.getItem('user') == null){
+  //   return navigate('/')
+  // }
+
 
 
   useEffect(()=>{
