@@ -230,12 +230,16 @@
     background-color: rgba(24, 24, 22, 0.7);
 }
 
+.table table tbody tr:hover {
+    background-color: rgb(71, 71, 71);
+}
+
 .updateIcon:hover{
-    color: rgb(87, 87, 196);
     transform:translateY(3px);
+    color: aqua;
 }
 .deleteIcon:hover{
-    color: rgb(187, 93, 93);
+    color: rgb(184, 0, 0);
     transform:translateY(3px);
 }
 
