@@ -16,6 +16,12 @@ const User = () => {
   const config = {
     headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}` }
   };
+  const [alertState, setalertState] = useState({
+    title:'',
+    message:''
+  })
+  const [alertView, setalertView] = useState(false)
+
   const [detalisView, setdetalisView] = useState(false)
   const [formView, setformView] = useState(false)
   const [details, setdetails] = useState('')
@@ -28,6 +34,19 @@ const User = () => {
   const [tdata, settdata] = useState([])
   const [loading, setloading] = useState(false)
   const [toastView, settoastView] = useState(false)
+
+  const showAlert = (title,message) => {
+    setalertView(true);
+    setalertState({title,message})
+  }
+  const closeAlert = () => {
+    setalertView(false)
+    setalertState({
+      title:"",
+      message:""
+    })
+  }
+
   const setInitialState = () => {
     setdata({
       name: '',
@@ -55,7 +74,7 @@ const User = () => {
     } catch (error) {
       if (error.response.status === 400) {
         console.log(error, error.response.status);
-        alert(error.response.data.message)
+        showAlert('Error Occured',error.response.data.message)
       } else {
         console.log(error);
       }
@@ -93,20 +112,20 @@ const User = () => {
   const updateClick = async (e) => {
     e.preventDefault()
     if (!data.email || !data.name || !data.password || !data.type) {
-      return alert('Some Required Fields are missing');
+      return showAlert("Missing Fields","Some Required Fields Are Missing");
     }
     setloading(true)
     try {
       const response = await axios.put('/api/users', data, config)
       setInitialState()
-      alert('updated Successfully');
+      showAlert("Record Updated Successfully!","Record is Updated successfully, you can handle further operations using the down table")
       fetchtdata()
       setformView(false)
       setloading(false)
     } catch (error) {
       if (error.response.status === 400) {
         console.log(error, error.response.status);
-        alert(error.response.data.message)
+        showAlert('Error Occured',error.response.data.message)
       } else {
         console.log(error);
       }
@@ -116,20 +135,20 @@ const User = () => {
   const submit = async (e) => {
     e.preventDefault()
     if (!data.email || !data.name || !data.password || !data.type) {
-      return alert('Some Required Fields are missing');
+      return showAlert("Missing Fields","Some Required Fields Are Missing");
     }
     setloading(true)
     try {
       const response = await axios.post('/api/users', data, config)
       setInitialState()
-      alert('Added Successfully');
+      showAlert("Record Added Successfully!","Record is added successfully, you can handle further operations using the down table")
       fetchtdata()
       setformView(false)
       setloading(false)
     } catch (error) {
       if (error.response.status === 400) {
         console.log(error, error.response.status);
-        alert(error.response.data.message)
+        showAlert('Error Occured',error.response.data.message)
       } else {
         console.log(error);
       }
@@ -143,14 +162,14 @@ const User = () => {
       try {
         const response = await axios.delete(`/api/users/${item._id}`, config)
         setInitialState()
-        alert('deleted Successfully');
+        showAlert('Deleted Successfully',"Record was successfully Deleted.")
         fetchtdata()
         setformView(false)
         setloading(false)
       } catch (error) {
         if (error.response.status === 400) {
           console.log(error, error.response.status);
-          alert(error.response.data.message)
+          showAlert('Error Occured',error.response.data.message)
         } else {
           console.log(error);
         }
@@ -317,6 +336,27 @@ const User = () => {
       <div className="toast" style={{ display: `${toastView ? "" : 'none'}` }}>
         <p>Copy to ClipBoarid</p>
         <span onClick={() => { settoastView(false) }} ><CloseIcon sx={{ color: 'white' }} /></span>
+      </div>
+      {/* Alert */}
+      <div className="alert" style={{display:`${alertView ? "" : "none"}`}}>
+        <div className="alertInner">
+          <div className="alertHeader">
+            <div className="alertHeaderInnd">
+              <div className="alertTitle">{alertState.title}</div>
+              <CloseIcon className='alertIcon' sx={{color:'white'}} onClick={closeAlert} />
+            </div>                     
+          </div>
+          <div className="alertCenter">
+              <div className="alertCenterInner">
+                <div className="alertMessage">{alertState.message}</div>
+              </div>
+            </div>
+          <div className="alertBottom">
+              <div className="alertBottomInner">
+                <button onClick={closeAlert}>Close</button>
+              </div>
+            </div>
+        </div>
       </div>
     </>
   )
