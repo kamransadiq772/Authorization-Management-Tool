@@ -41,6 +41,7 @@ const User = () => {
       databaseServerName: "",
       databaseServerUser: "",
       databaseServerPassword: "",
+      description:"",
     })
   }
 
@@ -307,6 +308,7 @@ const User = () => {
                 <div className="infoItems"><span>Database Name</span> <p>{details !== '' && details.databaseServerName}</p></div>
                 <div className="infoItems"><span>Database User</span> <p>{details !== '' && details.databaseServerUser}</p></div>
                 <div className="infoItems"><span>Database Password</span> <p>{details !== '' && details.databaseServerPassword}</p></div>
+                <div className="infoItems"><span>Description ::</span> <p>{details !== '' && details.description}</p></div>
               </div>
             </div>
           </div>
@@ -340,6 +342,9 @@ const User = () => {
               <input value={data.databaseServerUser} type="text" name="" id="" placeholder='databaseServerUser' onChange={e => setdata(ps => ({ ...ps, databaseServerUser: e.target.value }))} />
               <label htmlFor="">Database Password<span>*</span></label>
               <input value={data.databaseServerPassword} type="text" name="" id="" placeholder='databaseServerPassword' onChange={e => setdata(ps => ({ ...ps, databaseServerPassword: e.target.value }))} />
+              <label htmlFor="">Description</label>
+              <textarea value={data.description} type="text" name="" id="" placeholder='description' onChange={e => setdata(ps => ({ ...ps, description: e.target.value }))} />
+
               <div className="buttonContaier">
                 <button className='btn' id='submit' onClick={submit}>Submit</button>
                 <button className='btn' id='clear' onClick={onClearClick}>Clear</button>

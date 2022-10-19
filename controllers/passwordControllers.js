@@ -6,7 +6,7 @@ const Cryptr = require('cryptr')
 var cryptr = new Cryptr(process.env.JWT_SECRET)
 
 const createPassword = asyncHandler(async (req, res) => {
-    const { clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword } = req.body   //destructuring the req.body 
+    const { clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword, description } = req.body   //destructuring the req.body 
 
     if(req.user.type !== 'admin'){
         res.status(400)
@@ -26,7 +26,7 @@ const createPassword = asyncHandler(async (req, res) => {
     }
 
     const password = await Password.create({
-        clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword, createdBy: req.user._id
+        clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword, description, createdBy: req.user._id
     }) //in return it will give the created user
 
     if (password) {
@@ -56,7 +56,7 @@ const allPasswords = asyncHandler(async (req, res) => {
     }
 })
 const updatePassword = asyncHandler(async (req, res) => {
-    const { _id ,clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword } = req.body   //destructuring the req.body 
+    const { _id ,clientName, anydeskID, anydeskPassword, serverUser, serverPassword, databaseServerName, databaseServerUser, databaseServerPassword,description } = req.body   //destructuring the req.body 
     if(req.user.type !== 'admin'){
         res.status(400)
         throw new Error('Only Admin can access')
@@ -75,6 +75,7 @@ const updatePassword = asyncHandler(async (req, res) => {
         databaseServerName,
         databaseServerUser,
         databaseServerPassword: cryptr.encrypt(databaseServerPassword),
+        description,
         updatedBy: req.user._id
     }, { new: true })
     if (!updatedPassword) {

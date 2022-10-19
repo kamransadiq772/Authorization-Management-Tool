@@ -12,6 +12,7 @@ const passwordSchema = mongoose.Schema({
     databaseServerName: { type: String, require: true },
     databaseServerUser: { type: String, require: true },
     databaseServerPassword: { type: String, require: true },
+    description:{type:String},
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 }, {
