@@ -41,7 +41,7 @@ const createPassword = asyncHandler(async (req, res) => {
 })
 const allPasswords = asyncHandler(async (req, res) => {
     try {
-        var passwords = await Password.find().lean()
+        var passwords = await Password.find().lean().collation({locale:'en',strength: 2}).sort({clientName:1})
         var resp = passwords.map(row => ({
             ...row,
             anydeskPassword: cryptr.decrypt(row.anydeskPassword),

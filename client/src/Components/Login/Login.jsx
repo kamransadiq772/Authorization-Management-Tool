@@ -4,6 +4,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from 'axios'
 import {json, useNavigate} from 'react-router-dom'
 import VpnLockIcon from '@mui/icons-material/VpnLock';
+import logo from '../assets/logo.png'
+
 
 
 const Login = () => {
@@ -44,7 +46,7 @@ const Login = () => {
   return (
     <div className="loginContainer">
       <div className="loginupperHeaderContainer">
-        <h1>Wimetrix</h1>
+        <h1><img src={logo} alt="" /></h1>
         <VpnLockIcon sx={{color:'red'}} />
       </div>
       <div className="loginbox">
