@@ -499,6 +499,16 @@
     top: 0;
     left: 0;
 }
+@keyframes alert1 {
+    0% {opacity: 0; height: 0px;}
+    50% {opacity: 1; height: 400px;}
+    100% {opacity: 1; height: 240px;}
+  }
+@keyframes alertBtn {
+    0% {opacity: 0; width: 0%;height: 40px;}
+    50% {opacity: 1; width: 30%;}
+    100% {opacity: 1; height: 20%; height: 40px;}
+}
 .alertInner{
     background-color: #30312C;
     height: auto;
@@ -506,9 +516,9 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    animation-name: alert;
+    animation-name: alert1;
     animation-timing-function: ease-out;
-    animation-duration: 0.5px;
+    animation-duration: 0.5s;
 }
 .alertHeader{
     height: 20%;
@@ -580,9 +590,10 @@
     box-shadow: 1px 1px 4px 1px #555;
     cursor: pointer;
     height: 40px;
+    animation-name: alertBtn;
+    /* animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-duration: 1s; */
 }
-@keyframes alert {
-    from {opacity: 0; transform: translateX(300px);height: 0px;}
-    to {opacity: 1; transform: translateX(0px); height: auto;}
-  }
+
 

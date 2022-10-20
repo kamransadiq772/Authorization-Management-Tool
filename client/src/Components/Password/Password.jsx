@@ -274,9 +274,9 @@ const User = () => {
                 <table>
                   <thead>
                     <tr>
-                      <th>ClientName</th>
-                      <th>AnydeskID</th>
-                      <th>ServerUser</th>
+                      <th>Client Name</th>
+                      <th>Anydesk ID</th>
+                      <th>Server User</th>
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
